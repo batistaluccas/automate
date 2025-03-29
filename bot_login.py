@@ -1,6 +1,6 @@
 
 from selenium import webdriver
-import time 
+import time
 
 navegador = webdriver.Chrome()
 navegador.get('https://login.site.com/')
