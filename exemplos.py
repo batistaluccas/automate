@@ -1,11 +1,15 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 import pyautogui
 import pyperclip
 
 pyautogui.PAUSE = 0.3
 
-navegador = webdriver.Chrome()
+# WebDriver gerenciado automaticamente
+servico = Service(ChromeDriverManager().install())
+navegador = webdriver.Chrome(service=servico)
 navegador.maximize_window()
 
 pyautogui.click(501, 85)  
