@@ -4,29 +4,34 @@ from webdriver_manager.chrome import ChromeDriverManager
 import time
 import pyautogui
 import pyperclip
+import keyboard
 
 pyautogui.PAUSE = 0.3
 
-
-for i in range(1, 6):
+tecla_sair = 'esc'
+x = int(input("quantas linhas quer preencher? "))
+print("mova o mouse até o icone da planilha\n")
+for seg in range(0,6):
+    print(5-seg,"\n")
+    time.sleep(1)
     
+pos_x, pos_y = pyautogui.position()
+i=1
+while i < x:
     
-    pyautogui.click(1150, 1051) # planilha
-    pyautogui.hotkey('ctrl', 'c')
+    if keyboard.is_pressed(tecla_sair):
+        print("Saindo...")
+        break
+    
+    pyautogui.click(pos_x, pos_y) # planilha
     pyautogui.hotkey('down')
-    pyautogui.click(975, 1051) # google
-    pyautogui.moveTo(1730, 260)
-    pyautogui.click()
-    pyautogui.hotkey('ctrl', 'v')
-    pyautogui.press('enter')
-    time.sleep(5)
-    pyautogui.moveTo(27, 70)
-    pyautogui.click()
-    print(i)
+    
+    i+=1
      
     
     
     
     time.sleep(0.5)
 
+input("Pressione Enter para sair...")
 
